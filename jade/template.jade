@@ -1,0 +1,95 @@
+doctype html
+html.no-js(lang='en')
+	include config
+	head
+		include head
+		block head
+			+title()
+			+description()
+		//- link(rel='stylesheet', type='text/css', href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css')
+		link(rel='stylesheet', type='text/css', href='//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
+		link(rel='stylesheet', type='text/css', href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
+
+		link(rel='shortcut icon', href='favicon.ico')
+		link(rel='icon', sizes='16x16 32x32', href='favicon.ico')
+		block styles
+			link(rel='stylesheet', type='text/css', href='css/main.css')
+		//if lt IE 9
+			script(src='bower_components/html5shiv/dist/html5shiv-printshiv.min.js')
+	body
+		include chromeframe
+		.fouc-loading(style='padding: 0.5em 1.5em;')
+			p loading
+			p If the site takes longer than 15 seconds to load something may have gone wrong (is javascript enabled?)
+		//- fouc-loading/loaded 
+		.fouc-content(style='display: none;')
+			header
+				.nav-wrap
+					nav.navbar.navbar-default(role='navigation')
+						.container-fluid
+							.logo-wrap
+								img(src='img/e53-logo-large-lite.png', alt='e53 Publishing')
+							//- .navbar-header
+							//- 	button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+							//- 		span.sr-only Toggle navigation
+							//- 		span.icon-bar
+							//- 		span.icon-bar
+							//- 		span.icon-bar
+							//- 	a.navbar-brand(href='#')
+							//- 		img(src='img/e53-logo-large.png', alt='e53 Publishing', style='height: 1.3em;')
+							//- .collapse.navbar-collapse
+							//- 	ul.nav.navbar-nav.navbar-right
+							//- 		li
+							//- 			a(href='#') 
+							//- 				span.fa.fa-twitter
+							//- 				|  Twitter
+							//- 		li
+							//- 			a(href='#') 
+							//- 				span.fa.fa-facebook-square
+							//- 				|  Facebook
+							//- 		li
+							//- 			a(href='#') The Team
+							//- 		li
+							//- 			a(href='#') Published Books
+							//- 		li
+							//- 			a(href='#') Contact Us
+				block feature
+
+			main.container
+				block main
+					article
+						h1 Article Title
+						p Lorem ipsum
+
+			footer.container
+				block footer
+					//- | &nbsp;
+					hr
+					p Copyright &copy; 2014 e53 Publishing LLC
+					| &nbsp;
+		//- fouc-content
+		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+		script
+			window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>');
+		script(src='js/util/normalizeLoader.js')
+		block normalizeLoader
+			script
+				normalizeLoader();
+
+		script(src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
+		script(src='js/util/bootstrapLoader.js')
+		block bootstrapLoader
+			script
+				bootstrapLoader();
+
+		script(src='js/util/fontAwesomeLoader.js')
+		block fontAwesomeLoader
+			script
+				fontAwesomeLoader();
+		span(style='display: none;')
+			span.fa
+
+		script(src='js/util/fouc.js')
+		block scripts
+			script(src='js/main.js')
+		include analytics
